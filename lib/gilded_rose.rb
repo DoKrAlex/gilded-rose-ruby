@@ -1,23 +1,20 @@
 class GildedRose
 
-  def normal_tick
-    @item = Normal.new(quality, days_remaining)
-    item.tick
-  end
-
-  def brie_tick
-    @item = Brie.new(quality, days_remaining)
-    item.tick
-  end
-
-  def sulfuras_tick
-    @item = Sulfuras.new(quality, days_remaining)
-    item.tick
-  end
-
-  def backstage_tick
-    @item = Backstage.new(quality, days_remaining)
-    item.tick
+  def tick
+    case name
+    when 'normal'
+      @item = Normal.new(quality, days_remaining)
+      item.tick
+    when 'Aged Brie'
+      @item = Brie.new(quality, days_remaining)
+      item.tick
+    when 'Sulfuras, Hand of Ragnaros'
+      @item = Sulfuras.new(quality, days_remaining)
+      item.tick
+    when 'Backstage passes to a TAFKAL80ETC concert'
+      @item = Backstage.new(quality, days_remaining)
+      item.tick
+    end
   end
 
   def quality
